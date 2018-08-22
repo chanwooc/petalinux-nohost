@@ -1,3 +1,101 @@
 /include/ "system-conf.dtsi"
 / {
 };
+
+/* 1300MHz CPU Operation Table */
+&cpu_opp_table {
+	opp00 {
+		opp-hz = /bits/ 64 <1299999988>;
+	};
+	opp01 {
+		opp-hz = /bits/ 64 <649999994>;
+	};
+	opp02 {
+		opp-hz = /bits/ 64 <433333333>;
+	};
+	opp03 {
+		opp-hz = /bits/ 64 <324999999>;
+	};
+};
+
+
+/* GPIO hogs shouldn't be used for systems where gt muxes are setup via fsbl: e7af990 @ device-tree-xlnx */
+/*
+	&tca6416_u97 {
+		gtr_sel1 {
+			/delete-property/ output-high;
+			output-low;
+		};
+		gtr_sel2 {
+			/delete-property/ output-high;
+			output-low;
+		};
+		gtr_sel3 {
+			/delete-property/ output-high;
+			output-low;
+		};
+	};
+*/
+
+/*
+/delete-node/ &xilinx_drm;
+/delete-node/ &xlnx_dp;
+/delete-node/ &xlnx_dp_sub;
+/delete-node/ &xlnx_dp_snd_pcm0;
+/delete-node/ &xlnx_dp_snd_pcm1;
+/delete-node/ &xlnx_dp_snd_card;
+/delete-node/ &xlnx_dp_snd_codec0;
+/delete-node/ &xlnx_dpdma;
+
+&si570_1 {
+	/delete-property/ clock-frequency;
+};
+
+&si570_2 {
+	/delete-property/ clock-frequency;
+};
+*/
+
+/* connectal */
+&amba {
+	/* HPM0 Lower  (256MB): 0xA000_0000 - 0xAFFF_FFFF */
+	/* HPM0 Higher (4GB  ): 0x0004_0000_0000 - 0x0004_FFFF_FFFF */
+
+	/* assigned interrupt number corresponds to [actual SPI - 32] */
+	/* PL->PS: SPI# (121 ~ 128, 136 ~ 143), IRQ# (89 ~ 96, 104 ~ 111) */
+
+	connectal@0xae400000 {
+		compatible = "linux,portal-0.01.a";
+		interrupts = <0 89 4>; /* active high level-sensitive (4) */
+		interrupt-parent = <&gic>;
+		reg = <0x0 0xae400000 0x0 0x10000>; /* 64 bit format */
+		device-name = "connectal";
+
+/*
+	00	clock-output-names = "iopll", "rpll", "apll", "dpll",
+	04			"vpll", "iopll_to_fpd", "rpll_to_fpd",
+	07			"apll_to_lpd", "dpll_to_lpd", "vpll_to_lpd",
+	10			"acpu", "acpu_half", "dbf_fpd", "dbf_lpd",
+	14			"dbg_trace", "dbg_tstmp", "dp_video_ref",
+	17			"dp_audio_ref", "dp_stc_ref", "gdma_ref",
+	20			"dpdma_ref", "ddr_ref", "sata_ref", "pcie_ref",
+	24			"gpu_ref", "gpu_pp0_ref", "gpu_pp1_ref",
+	27			"topsw_main", "topsw_lsbus", "gtgref0_ref",
+	30			"lpd_switch", "lpd_lsbus", "usb0_bus_ref",
+	33			"usb1_bus_ref", "usb3_dual_ref", "usb0",
+	36			"usb1", "cpu_r5", "cpu_r5_core", "csu_spb",
+	40			"csu_pll", "pcap", "iou_switch", "gem_tsu_ref",
+	44			"gem_tsu", "gem0_ref", "gem1_ref", "gem2_ref",
+	48			"gem3_ref", "gem0_tx", "gem1_tx", "gem2_tx",
+	52			"gem3_tx", "qspi_ref", "sdio0_ref", "sdio1_ref",
+	56			"uart0_ref", "uart1_ref", "spi0_ref",
+	59			"spi1_ref", "nand_ref", "i2c0_ref", "i2c1_ref",
+	63			"can0_ref", "can1_ref", "can0", "can1",
+	67			"dll_ref", "adma_ref", "timestamp_ref",
+	70			"ams_ref", "pl0", "pl1", "pl2", "pl3", "wdt";
+*/
+		clocks = <&clkc 71>, <&clkc 72>, <&clkc 73>, <&clkc 74>;
+		clock-names = "fclk0", "fclk1", "fclk2", "fclk3";
+		//clock-names = "pl0", "pl1", "pl2", "pl3";
+	};
+};
