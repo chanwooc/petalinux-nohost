@@ -8,6 +8,7 @@ inherit module
 SRC_URI = "file://Makefile \
            file://zynqportal.c \
            file://zynqportal.h \
+	   file://COPYING \
           "
 
 S = "${WORKDIR}"
