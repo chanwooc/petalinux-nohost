@@ -8,7 +8,6 @@ inherit module
 SRC_URI = "file://Makefile \
            file://portalmem.c \
            file://portalmem.h \
-	   file://COPYING \
           "
 
 S = "${WORKDIR}"
