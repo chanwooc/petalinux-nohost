@@ -4377,6 +4377,12 @@ CONFIG_bridge-utils=y
 # CONFIG_peekpoke is not set
 
 #
+# modules 
+#
+CONFIG_portalmem=y
+CONFIG_zynqportal=y
+
+#
 # user packages 
 #
 
