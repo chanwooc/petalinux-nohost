@@ -825,10 +825,10 @@ inout
 MIO 27
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-DPAUX
+GPIO1 MIO
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-dp_aux_data_out
+gpio1[27]
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 schmitt
@@ -840,7 +840,7 @@ slow
 pullup
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-out
+inout
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 12
@@ -851,10 +851,10 @@ out
 MIO 28
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-DPAUX
+GPIO1 MIO
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-dp_hot_plug_detect
+gpio1[28]
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 schmitt
@@ -866,7 +866,7 @@ slow
 pullup
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-in
+inout
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 12
@@ -877,10 +877,10 @@ in
 MIO 29
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-DPAUX
+GPIO1 MIO
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-dp_aux_data_oe
+gpio1[29]
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 schmitt
@@ -892,7 +892,7 @@ slow
 pullup
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-out
+inout
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 12
@@ -903,10 +903,10 @@ out
 MIO 30
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-DPAUX
+GPIO1 MIO
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-dp_aux_data_in
+gpio1[30]
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 schmitt
@@ -918,7 +918,7 @@ slow
 pullup
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-in
+inout
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 12
@@ -2170,7 +2170,7 @@ APLL
 PSS_REF_CLK
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-2399.976
+2599.974
 </TD>
 </TR>
 <TR valign="top">
@@ -2192,7 +2192,7 @@ VPLL
 PSS_REF_CLK
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-2533.308
+2399.976
 </TD>
 </TR>
 <TR valign="top">
@@ -2203,7 +2203,7 @@ RPLL
 PSS_REF_CLK
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-1499.985
+2799.972
 </TD>
 </TR>
 <TR valign="top">
@@ -2505,10 +2505,24 @@ IOPLL
 PL0 freq (MHz)
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
+200
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+RPLL
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+199.998
+</TD>
+</TR>
+<TR valign="top">
+<TD width=10% BGCOLOR=#FBF5EF>
+PL1 freq (MHz)
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
 100
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-IOPLL
+RPLL
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 99.999
@@ -2533,13 +2547,13 @@ IOPLL
 ACPU freq (MHz)
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-1200
+1300
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 APLL
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-1199.988
+1299.987
 </TD>
 </TR>
 <TR valign="top">
@@ -2554,48 +2568,6 @@ IOPLL
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 249.997
-</TD>
-</TR>
-<TR valign="top">
-<TD width=10% BGCOLOR=#FBF5EF>
-DP VIDEO freq (MHz)
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-320
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-VPLL
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-316.663
-</TD>
-</TR>
-<TR valign="top">
-<TD width=10% BGCOLOR=#FBF5EF>
-DP AUDIO freq (MHz)
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-25
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-RPLL
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-25.000
-</TD>
-</TR>
-<TR valign="top">
-<TD width=10% BGCOLOR=#FBF5EF>
-DP STC freq (MHz)
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-27
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-RPLL
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-26.785
 </TD>
 </TR>
 <TR valign="top">
@@ -2662,7 +2634,7 @@ GDMA freq (MHz)
 600
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-APLL
+VPLL
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 599.994
@@ -2676,7 +2648,7 @@ DPDMA freq (MHz)
 600
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-APLL
+VPLL
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 599.994
@@ -3020,20 +2992,6 @@ Ref Clk0
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
 100
-</TD>
-</TR>
-<TR valign="top">
-<TD width=10% BGCOLOR=#FBF5EF>
-DP
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-GT Lane1
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-Ref Clk3
-</TD>
-<TD width=10% BGCOLOR=#FBF5EF>
-27
 </TD>
 </TR>
 <TR valign="top">
