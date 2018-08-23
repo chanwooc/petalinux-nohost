@@ -4371,12 +4371,6 @@ CONFIG_bridge-utils=y
 # CONFIG_xserver-nodm-init-dev is not set
 
 #
-# apps 
-#
-# CONFIG_gpio-demo is not set
-# CONFIG_peekpoke is not set
-
-#
 # modules 
 #
 CONFIG_portalmem=y
