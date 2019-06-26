@@ -12,3 +12,5 @@ project-spec/meta-plnx-generated/
 meta-plnx-generated/
 .Xil/
 components/plnx_workspace
+vivado/
+SD_Card/

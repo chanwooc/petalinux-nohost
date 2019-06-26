@@ -1,0 +1,9 @@
+Petalinux 17.4
+ BSP-base: ZCU102-ES2
+ HDF-base: ZCU102-ES2 Board v2.3 with 4GB DRAM
+ XRP     : es2_4G_17.4.tar.gz
+
+Current  Ver_Name      Desc
+         Beta v1.0     CCI (PMU/USB0/SD1/HPC0/HPC1/FPD-M) On => bunch of errors
+v        Beta v1.1a    CCI Off
+         Beta v1.1b    CCI (FPD-M) On => PCI-E error
