@@ -12,5 +12,7 @@ project-spec/meta-plnx-generated/
 components/plnx_workspace
 
 .Xil/
-vivado/
 SD_Card/
+*.str
+*.cache/
+*.runs/
