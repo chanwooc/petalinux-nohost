@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Sat May 25 00:36:11 2019
+# Process ID: 105661
+# Current directory: /tmp/tmp.m62wemyBVS/temp
+# Command line: vivado -mode batch -source ../build.tcl -tclargs -pl none -preset zcu102 -build bit -jobs 16 -filename xilinx-zcu102-2019.1
+# Log file: /tmp/tmp.m62wemyBVS/temp/vivado.log
+# Journal file: /tmp/tmp.m62wemyBVS/temp/vivado.jou
+#-----------------------------------------------------------
+source ../build.tcl
