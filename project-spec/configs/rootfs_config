@@ -4189,12 +4189,6 @@ CONFIG_imagefeature-hwcodecs=y
 # CONFIG_imagefeature-debug-tweaks is not set
 
 #
-# apps 
-#
-# CONFIG_gpio-demo is not set
-# CONFIG_peekpoke is not set
-
-#
 # modules 
 #
 CONFIG_portalmem=y
