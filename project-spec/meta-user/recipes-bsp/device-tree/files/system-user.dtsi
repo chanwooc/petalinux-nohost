@@ -2,8 +2,8 @@
 /{
 };
 
+/* i2c1 bug fix included in 2019.1 zcu102 BSP */
 &i2c1 {
-
 	/* FIXME PL i2c via PCA9306 - u45 */
 	/* FIXME MSP430 - u41 - not detected */
 	i2c-mux@74 { /* u34 */
@@ -21,5 +21,42 @@
 				reg = <0x54>;
 			};
 		};
+	};
+};
+
+/* cwchung added */
+/* 1300MHz CPU Operation Table */
+&cpu_opp_table {
+	opp00 {
+		opp-hz = /bits/ 64 <1299999988>;
+	};
+	opp01 {
+		opp-hz = /bits/ 64 <649999994>;
+	};
+	opp02 {
+		opp-hz = /bits/ 64 <433333333>;
+	};
+	opp03 {
+		opp-hz = /bits/ 64 <324999999>;
+	};
+};
+
+/* connectal */
+&amba {
+	/* HPM0 Lower  (256MB): 0xA000_0000 - 0xAFFF_FFFF */
+	/* HPM0 Higher (4GB  ): 0x0004_0000_0000 - 0x0004_FFFF_FFFF */
+
+	/* assigned interrupt number corresponds to [actual SPI - 32] */
+	/* PL->PS: SPI# (121 ~ 128, 136 ~ 143), IRQ# (89 ~ 96, 104 ~ 111) */
+
+	connectal@0xae400000 {
+		compatible = "linux,portal-0.01.a";
+		interrupts = <0 89 4>; /* active high level-sensitive (4) */
+		interrupt-parent = <&gic>;
+		reg = <0x0 0xae400000 0x0 0x10000>; /* 64 bit format */
+		device-name = "connectal";
+
+		clocks = <&zynqmp_clk 71>, <&zynqmp_clk 72>, <&zynqmp_clk 73>, <&zynqmp_clk 74>;
+		clock-names = "fclk0", "fclk1", "fclk2", "fclk3";
 	};
 };
